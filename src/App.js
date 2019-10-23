@@ -3,10 +3,13 @@ import logo from './logo.svg';
 import './App.css';
 import presentbox from './images/presentbox.png';
 import velo from './images/velo.png';
+import particlesJS from 'particles.js';
 
 function App() {
 
   const [count, setCount] = useState(0);
+
+ 
 
   let box = presentbox;
 
@@ -17,7 +20,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         
-        <img src={box} className="App-logo" alt="logo" />
+        <img src={box} className="present" alt="logo" />
         <p>
           I clicked {count} times
         </p>
