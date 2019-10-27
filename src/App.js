@@ -4,7 +4,7 @@ import './App.css';
 import presentbox from './images/presentbox.png';
 import velo from './images/velo.png';
 
-////random number generating function makes magicNumber
+////random number generating function makes magicNumber, takes in highest possible value
 function getRandomInt(max) {
   return Math.floor(Math.random() * Math.floor(max));
 }
@@ -16,12 +16,20 @@ function App() {
   ////state tracks count
   const [count, setCount] = useState(0);
 
-  ////this box will change into velociraptor when count meets magicNumber
+  let conditionalButton = <button onClick={() => setCount(count + 1)}>Clicky</button>;
+
+  ////this box will change into a velociraptor when count equals magicNumber
   let box = presentbox;
+
   if( count >= magicNumber ){
+    ////turn the box into  a velociraptor
     box = velo;
+
+    conditionalButton = <button onClick={() => setCount(0)}>Reset</button>;
+  
   }
 
+ 
   return (
     <div className="App">
       <header className="App-header">
@@ -32,7 +40,7 @@ function App() {
           I clicked {count} times
         </p>
        
-        <button onClick={() => setCount(count + 1)}>Clicky</button>
+        {conditionalButton}
 
       </header>
     </div>
