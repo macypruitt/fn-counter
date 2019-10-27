@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
 
-import presentbox from './images/presentbox.png';
+import presentBox from './images/presentBox.png';
 import velo from './images/velo.png';
 
 ////random number generating function makes magicNumber, takes in highest possible value
@@ -16,15 +16,15 @@ function App() {
   ////state tracks count
   const [count, setCount] = useState(0);
 
-  let conditionalButton = <button onClick={() => setCount(count + 1)}>Clicky</button>;
+  let surpriseBox = presentBox;
 
-  ////this box will change into a velociraptor when count equals magicNumber
-  let box = presentbox;
+  let conditionalButton = <button onClick={() => setCount(count + 1)}>Click</button>;
 
   if( count >= magicNumber ){
-    ////turn the box into  a velociraptor
-    box = velo;
+    ////turn image of box into a velociraptor
+    surpriseBox = velo;
 
+    ////make button say 'Reset' and set count to 0
     conditionalButton = <button onClick={() => setCount(0)}>Reset</button>;
   
   }
@@ -34,7 +34,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         
-        <img src={box} className="present" alt="logo" />
+        <img src={surpriseBox} className="present" alt="logo" />
 
         <p>
           I clicked {count} times
