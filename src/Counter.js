@@ -14,26 +14,23 @@ function Counter() {
 
     let match = count === mysteryNumber;
 
-    const handleButtonClick = () => setCount(!match? count + 1 : resetCount)
+    const handleButtonClick = () => setCount( !match? count + 1 : resetCount )
     const resetCount = () => {
       setCount(0) 
       setMysteryNumber(generateRandomInt)
     }
 
     return(
-        <div>
-            <img src={ match ? velociraptorImg : presentImg } className="present" alt="surprise" />
+      <div>
+        <img src={ match ? velociraptorImg : presentImg } className="present" alt="surprise" />
 
-              <p>
-                  Clicked {count} times
-              </p>
-              
-              <button 
-                onClick={handleButtonClick}>
-                  {match ? 'Reset' : 'Click'}
-              </button>
-          </div>
-        )
+          <p>Clicked {count} times</p>
+          
+          <button onClick={handleButtonClick}>
+            { match ? 'Reset' : 'Click' }
+          </button>
+      </div>
+    )
 
 }
 
